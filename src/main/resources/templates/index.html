@@ -1,0 +1,18 @@
+<html xmlns:th="https://thymeleaf.org">
+    <body>
+        <div>
+            <form method="POST" enctype="multipart/form-data" action="/api/v1/single/upload">
+                <table>
+                    <tr>
+                        <td>Files to be uploaded:</td>
+                        <td><input type="file" name="file"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Upload"/></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
