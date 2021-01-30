@@ -1,5 +1,6 @@
 package com.lundih.fileupload.services;
 
+import com.lundih.fileupload.FileUploadApplication;
 import com.lundih.fileupload.dto.FileUploadResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -59,7 +60,7 @@ public class FileService {
         String contentType = file.getContentType();
         String url = ServletUriComponentsBuilder
                 .fromCurrentContextPath() // Get current url path (///http://localhost:[port]
-                .path("/download/") // Append this path to the current url
+                .path(FileUploadApplication.SINGLE_DOWNLOAD_URL) // Append this path to the current url
                 .path(fileName)
                 .toUriString();
 
