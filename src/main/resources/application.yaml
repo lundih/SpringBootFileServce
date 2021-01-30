@@ -1,0 +1,40 @@
+server:
+  error:
+    include-message: always
+  port: 8080
+
+# Set storage location
+file:
+  storage:
+    location: fileStorage
+
+# File upload constraints
+# multipart is enabled by default
+# location is the intermediate location before the files are moved to storage location
+# The location is used in case anything goes wrong, the files can be retrieved at a later stage
+# When the files are uploaded successfully, the files in the tempLoc  are deleted automatically
+# file-size-threshold is the size at or past which the tempLoc will be created
+# max-file-size is the max size of a single file that can be uploaded. Default is 1MB
+# max-request-size is the size of the combination of all file sizes in the request. Default is 10MB
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      location: tempLoc
+      file-size-threshold: 5MB
+      max-file-size: 5MB
+      max-request-size: 20MB
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/upload_files_test
+    username: postgres
+    password: [password here]
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
