@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class FEUploadController {
 
-    @GetMapping("/upload-files")
+    @GetMapping("/upload-file")
     ModelAndView fileUpload() {
         return new ModelAndView("index.html");
     }
